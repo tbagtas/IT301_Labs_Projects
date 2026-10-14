@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab11</title>
+    <style>
+        div{
+            height: 500px;
+            width: 500px
+        }
+    </style>
+</head>
+<body>
+    <button id="button">Click Me!😊</button>
+    <div id="box"></div>
+    <script>
+        const button = document.getElementById('button');
+        const box = document.getElementById('box');
+        function hover(event){
+            button.style.backgroundColor='yellow';
+            button.textContent = 'Do Not Click😠';
+        }
+        function oneClick(event){
+            button.style.backgroundColor='red';
+            button.textContent="Ouch!🤕"
+        }
+        function leave(event){
+            button.style.backgroundColor='lightgreen';
+            button.textContent='Phew!😌';
+        }
+        function doubleClick(event){
+            button.style.backgroundColor='pink';
+            button.textContent='Double trouble!🤩';
+        }
+        function move(event){
+            button.style.backgroundColor='lightblue';
+            button.textContent='I See you!👀'
+        }
+
+        button.addEventListener('mousemove', hover);
+        button.addEventListener('click', oneClick);
+        button.addEventListener('mouseleave', leave);
+        button.addEventListener('dblclick', doubleClick);
+        box.addEventListener('pointermove', move);
+    </script>
+</body>
+</html>
