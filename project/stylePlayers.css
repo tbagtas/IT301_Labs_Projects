@@ -1,0 +1,52 @@
+h1{
+  font-family: "Neuton", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+h2{
+  font-family: "Neuton", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h3{
+  font-family: "Neuton", serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+body{
+    color: blue;
+    background-color: cornsilk;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#champions_league_logo{
+    display: flex;
+    width: 300px;
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 30px;
+}
+
+
+nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    border: solid black;
+}
+
+nav ul li{
+    margin: 3px;
+}
+
+
+footer{
+    margin-top: 5px;
+}
