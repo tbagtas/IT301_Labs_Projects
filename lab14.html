@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab14: API</title>
+</head>
+<body>
+    <script>
+        let info = document.createElement('info');
+        let bttn = document.createElement('button');
+        bttn.type = 'button';
+        bttn.textContent = 'Generate Profile';
+        let form = document.createElement('form');
+        form.action = '#';
+        form.appendChild(bttn);
+       
+        document.body.appendChild(form);
+        const getUser =async()=>{
+            let p = await fetch('https://randomuser.me/api/');
+            p = await p.json();
+            let name = p[0].name;
+            let pic = p[0].picture;
+            let email = p[0].email;
+            let phone = p[0].phone;
+
+            console.log(name, pic, email, phone);
+            document.body.appendChild(img);
+        }
+        bttn.addEventListener('click', getUser);
+    </script>
+</body>
+</html>
