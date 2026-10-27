@@ -46,8 +46,15 @@ ul{
 }
 
 
-#league{
+.league{
     font-weight: bold;
+    border: solid 3px lightskyblue;
+    margin-bottom: 10px;
+    color: blueviolet;
+}
+
+.team{
+    font-weight:lighter;
 }
 
 footer{

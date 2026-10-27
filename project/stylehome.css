@@ -22,6 +22,7 @@ body{
     font-family: "Fira Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
+    position: absolute;
 
 }
 
@@ -46,14 +47,19 @@ nav ul li{
     margin: 3px;
 }
 
-#club-logos{
+
+.club-logos-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
 }
-.club-logos{
+
+.club-logos {
     width: 150px;
-    margin: 5px;
+    max-width: 22%;
+    height: auto;
 }
 
 footer{
