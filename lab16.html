@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab16: Form Validation</title>
+    <style>
+        .rules {
+            display: none;
+        }
+
+        .rules.show {
+            display: block;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <label for="name">Enter name:</label>
+        <input type="text" id="name" required placeholder="Enter your name"><br>
+
+        <label for="email">Enter email:</label>
+        <input type="email" id="email" required placeholder="Enter your email"><br>
+
+        <label for="password">Enter password:</label>
+        <input type="password" id="password" required placeholder="Enter your password"><br>
+            <div class="rules" id="password-rules">
+                <div id="rule-length" class="rule">✖ At least 6 characters</div>
+                <div id="rule-special" class="rule">✖ Must include a special character (!@#$...)</div>
+                <div id="rule-uppercase" class="rule">✖ Must include an uppercase letter (A-Z)</div>
+            </div>
+        <button id="submit">Submit</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        const submit = document.getElementById('submit');
+        const form = document.querySelector('form');
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const result = document.getElementById('result');
+
+        const rules = document.getElementById('password-rules');
+        const ruleLength = document.getElementById('rule-length');
+        const ruleSpecial = document.getElementById('rule-special');
+        const ruleUppercase = document.getElementById('rule-uppercase');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (name.value != "" && email.value != "" && password.value != "") {
+                result.textContent = "Success";
+            }
+            else {
+                result.textContent = "Error, Please enter text into all fields";
+            }
+
+            console.log(result);
+        });
+
+        password.addEventListener('input', () => {
+            const pass = password.value;
+
+            rules.classList.add("show");
+
+            const goodlength = pass.length >= 6;
+            const goodspecial = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
+            const gooduppercase = /[A-Z]/.test(pass);
+
+            ruleLength.classList.toggle("valid", goodlength);
+            ruleLength.classList.toggle("invalid", !goodlength);
+
+            ruleSpecial.classList.toggle("valid", goodspecial);
+            ruleSpecial.classList.toggle("invalid", !goodspecial);
+
+            ruleUppercase.classList.toggle("valid", gooduppercase);
+            ruleUppercase.classList.toggle("invalid", !gooduppercase);
+
+            ruleLength.textContent = (goodlength ? "✔" : "✖") + " At least 6 characters";
+            ruleSpecial.textContent = (goodspecial ? "✔" : "✖") + " Must include a special character (!@#$...)";
+            ruleUppercase.textContent = (gooduppercase ? "✔" : "✖") + " Must include an uppercase letter (A-Z)";
+
+            console.log(password);
+        });
+    </script>
+    
+</body>
+</html>
